@@ -1,0 +1,12 @@
+{% extends "site/base.html" %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Forbidden" %}
+{% endblock %}
+
+{% block content %}
+    <h2>{% trans "Forbidden" %}</h2>
+
+    <p>{% trans "No things are forbidden, they are just not recommended." %}</p>
+{% endblock %}

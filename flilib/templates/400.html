@@ -1,0 +1,17 @@
+{% extends "site/base.html" %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Bad request" %}
+{% endblock %}
+
+{% block content %}
+    <h2>{% trans "Bad request" %}</h2>
+
+    <p>
+        {% blocktrans %}
+            I do not get upset when people do not understand me,
+            upset if I do not understand people."
+        {% endblocktrans %}
+    </p>
+{% endblock %}

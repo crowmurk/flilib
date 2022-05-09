@@ -1,0 +1,12 @@
+{% extends "site/base.html" %}
+{% load i18n %}
+
+{% block title %}
+    {{ block.super }} – {% trans "Under construction" %}
+{% endblock %}
+
+{% block content %}
+    <h2>{% trans "Under construction" %}</h2>
+
+    <p>{% trans "Sorry, this section is under construction." %}</p>
+{% endblock %}

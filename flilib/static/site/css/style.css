@@ -1,0 +1,76 @@
+/* Margins with bootstrap navbars
+-------------------------------------------------- */
+
+html {
+    scroll-padding-top: 2rem;
+}
+
+main {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Loading spinner
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.loading-progress {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    position: fixed;
+    left: calc(50% + 30px);
+    top: 50%;
+    margin: -75px 0 0 -75px;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Tables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+th.orderable a {
+    color: inherit;
+    text-decoration: none;
+}
+
+th.asc.orderable:after{
+    color: grey;
+    content: '▴';
+}
+
+th.desc.orderable:after{
+    color: grey;
+    content: '▾';
+}
+
+/* Definition lists
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+dl {
+    font-size: 1rem
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    padding-left: 2.5em;
+}

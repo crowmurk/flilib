@@ -1,8 +1,8 @@
-% Flibusta local server
+# Flibusta local server
 
 - [Запуск тестового сервера](#запуск-тестового-сервера)
 
-# Run test server
+## Run test server
 
 Create Python virtual environment:
 
@@ -90,7 +90,7 @@ Deacivate the Python virtual environment:
 deactivate
 ```
 
-# Запуск тестового сервера
+## Запуск тестового сервера
 
 Создаем виртуальное окружение Python:
 

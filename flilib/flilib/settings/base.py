@@ -34,12 +34,16 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'django_tables2',
     'django_extensions',
+    'django_tables2',
     'django_filters',
+    'crispy_forms',
 ]
 
 LOCAL_APPS = [
+    'core.apps.CoreConfig',
+    'library.apps.LibraryConfig',
+    'inpx.apps.InpxConfig',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -134,7 +138,7 @@ STATICFILES_DIRS = (
 
 # Bootstrap 4 support
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap4.html"
 
@@ -148,8 +152,20 @@ MESSAGE_TAGS = {
 
 # Admin config
 
-ADMIN_SITE_HEADER = _("Flibusta local lib administration")
+ADMIN_SITE_HEADER = _("Flibusta Library administration")
 
-ADMIN_SITE_TITLE = _("Flibusta local lib site admin")
+ADMIN_SITE_TITLE = _("Flibusta Library – administration")
 
 ADMIN_INDEX_TITLE = _('Site administration')
+
+# Library config
+
+LIBRARY_DIR = os.path.join(
+    BASE_DIR,
+    'archives',
+)
+
+INPX_FILE = os.path.join(
+    LIBRARY_DIR,
+    'flibusta_fb2_local.inpx',
+)

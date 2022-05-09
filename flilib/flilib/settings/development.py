@@ -13,6 +13,7 @@ ALLOWED_HOSTS = [
 ]
 
 INTERNAL_IPS = [
+    'localhost',
     '127.0.0.1',
 ]
 
@@ -71,32 +72,32 @@ LOGGING = {
         },
     },
     'loggers': {
+        'root': {
+            'handlers': [
+                'console',
+            ],
+            'level': 'INFO',
+            'propagate': True,
+        },
         'django': {
             'handlers': [
                 'console',
             ],
-            'level': 'DEBUG',
-            'propagate': True,
+            'level': 'INFO',
+            'propagate': False,
         },
         'debug': {
             'handlers': [
                 'console',
             ],
             'level': 'DEBUG',
-            'propagate': True,
+            'propagate': False,
         },
         'werkzeug': {
             'handlers': [
                 'console',
             ],
             'level': 'DEBUG',
-            'propagate': True,
-        },
-        'django.template': {
-            'handlers': [
-                'console',
-            ],
-            'level': 'INFO',
             'propagate': False,
         },
     },

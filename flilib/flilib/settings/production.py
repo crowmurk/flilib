@@ -51,7 +51,7 @@ LOGGING = {
         },
     },
     'loggers': {
-        'django': {
+        'root': {
             'handlers': [
                 'file',
             ],

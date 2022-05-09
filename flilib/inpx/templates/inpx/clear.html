@@ -1,0 +1,25 @@
+{% extends "inpx/base_inpx.html" %}
+{% load i18n %}
+
+{% block title %}
+    {{ block.super }} – {% trans "DB Clear" %}
+{% endblock %}
+
+{% block inpx_content %}
+    <form method="post" action="{% url 'inpx:clear' %}">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                {% csrf_token %}
+                <p>{% trans "Are you sure you want to clear database?" %}</p>
+                <div class="form-group row justify-content-between">
+                    <div class="col">
+                        <button class="btn btn-outline-secondary" type="submit">{% trans "Clear" %}</button>
+                    </div>
+                    <div class="col-auto">
+                        <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-outline-primary">{% trans "Cancel" %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "library/base_library.html" %}
+{% load static %}
+{% load i18n %}
+{% load names %}
+
+{% block title %}
+    {{ block.super }} – {{ book|verbose_name }}{% if book.title %} "{{ book.title }}"{% endif %}
+{% endblock %}
+
+{% block library_header %}
+    <h2>{{ book|verbose_name }}{% if book.title %} "{{ book.title }}"{% endif %}:</h2>
+{% endblock %}
+
+{% block library_button %}
+    {% if not book.deleted %}
+        <a href="{{ book.get_download_url }}" class="btn btn-outline-primary m-2">{% trans "Download" %}</a>
+    {% endif %}
+    <a href="{% url 'library:book:list' %}" class="btn btn-outline-secondary">{% trans "All" %}</a>
+{% endblock %}
+
+{% block library_content %}
+    <dl>
+        {% if book.authors.count %}
+            <dt><strong>{% field_verbose_name book 'authors' %}:</strong></dt>
+            {% for author in book.authors.all %}
+                <dd><a href="{{ author.get_absolute_url }}">{{ author }}</a></dd>
+            {% endfor %}
+        {% endif %}
+        {% if book.genres.count %}
+            <dt><strong>{% field_verbose_name book 'genres' %}:</strong></dt>
+            {% for genre in book.genres.all %}
+                <dd><a href="{{ genre.get_absolute_url }}">{{ genre.description }}</a></dd>
+            {% endfor %}
+        {% endif %}
+        {% if book.series %}
+            <dt><strong>{% field_verbose_name book 'series' %}:</strong></dt>
+            <dd><a href="{{ book.series.get_absolute_url }}">{{ book.series }}</a></dd>
+        {% endif %}
+        {% if book.seriesnumber %}
+            <dt><strong>{% field_verbose_name book 'seriesnumber' %}:</strong></dt>
+            <dd>{{ book.seriesnumber }}</dd>
+        {% endif %}
+        {% if book.language %}
+            <dt><strong>{% field_verbose_name book 'language' %}:</strong></dt>
+            <dd><a href="{{ book.language.get_absolute_url }}">{{ book.language.name }}</a></dd>
+        {% endif %}
+        {% if book.libraryrate %}
+            <dt><strong>{% field_verbose_name book 'libraryrate' %}:</strong></dt>
+            <dd>{{ book.libraryrate }}</dd>
+        {% endif %}
+        {% if book.deleted %}
+            <dt><strong>{% field_verbose_name book 'deleted' %}:</strong></dt>
+            <dd class="text-danger"><strong>{% trans "Yes" %}</strong></dd>
+        {% else %}
+            <dt><strong>{% field_verbose_name book 'size' %}:</strong></dt>
+            <dd>{{ book.size|filesizeformat }}</dd>
+        {% endif %}
+        <dt><strong>{% field_verbose_name book 'date' %}:</strong></dt>
+        <dd>{{ book.date }}</dd>
+        {% if book.keywords %}
+            <dt><strong>{% field_verbose_name book 'keywords' %}:</strong></dt>
+            <dd>{{ book.keywords }}</dd>
+        {% endif %}
+    </dl>
+{% endblock %}

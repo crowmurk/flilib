@@ -1,0 +1,27 @@
+{% extends "library/base_library.html" %}
+{% load static %}
+{% load i18n %}
+{% load names %}
+
+{% block title %}
+    {{ block.super }} – {{ genre|verbose_name }} "{{ genre.description }}"
+{% endblock %}
+
+{% block library_header %}
+    <h2>{{ genre|verbose_name }}:</h2>
+{% endblock %}
+
+{% block library_button %}
+    <a href="{% url 'library:genre:list' %}" class="btn btn-outline-secondary">{% trans "All" %}</a>
+{% endblock %}
+
+{% block library_content %}
+    <dl>
+        <dt><strong>{% field_verbose_name genre 'code' %}:</strong></dt>
+        <dd>{{ genre.code }}</dd>
+        <dt><strong>{% field_verbose_name genre 'description' %}:</strong></dt>
+        <dd>{{ genre.description }}</dd>
+        <dt><strong>{% trans "Books count" %}:</strong></dt>
+        <dd>{{ genre.books.count }}</dd>
+    </dl>
+{% endblock %}

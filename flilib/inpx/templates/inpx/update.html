@@ -1,0 +1,45 @@
+{% extends "inpx/base_inpx.html" %}
+{% load i18n %}
+
+{% block title %}
+    {{ block.super }} – {% trans "Update DB" %}
+{% endblock %}
+
+{% block inpx_header %}
+    <h2>{% trans "Update DB" %}:</h2>
+{% endblock %}
+
+{% block inpx_button %}
+    <a href="{% url 'library:book:list' %}" class="btn btn-outline-secondary">{% trans "Books" %}</a>
+{% endblock %}
+
+{% block inpx_content %}
+    <dl>
+        <dt><strong>{% trans "INPX file" %}:</strong></dt>
+        <dd>{{ file }}</dd>
+    </dl>
+    <h4>{% trans "Parsing results" %}:</h4>
+    <dl>
+        <dt><strong>{% trans "Books" %}:</strong></dt>
+        <dd>{{ books_parsed }}</dd>
+        <dt><strong>{% trans "Errors" %}:</strong></dt>
+        <dd>{{ parse_errors }}</dd>
+        <dt><strong>{% trans "Time spent" %}:</strong></dt>
+        <dd>{{ time_spent_parse }}</dd>
+    </dl>
+    <h4>{% trans "Database update results" %}:</h4>
+    <dl>
+        <dt><strong>{% trans "INP files" %}:</strong></dt>
+        <dd>{% trans "Created" %}: {{ inps_created }}</dd>
+        <dd>{% trans "Updated" %}: {{ inps_updated }}</dd>
+        <dt><strong>{% trans "Authors" %}:</strong></dt>
+        <dd>{{ authors_created }}</dd>
+        <dt><strong>{% trans "Series" %}:</strong></dt>
+        <dd>{{ series_created }}</dd>
+        <dt><strong>{% trans "Books" %}:</strong></dt>
+        <dd>{% trans "Created" %}: {{ books_created }}</dd>
+        <dd>{% trans "Updated" %}: {{ books_updated }}</dd>
+        <dt><strong>{% trans "Time spent" %}:</strong></dt>
+        <dd>{{ time_spent_update }}</dd>
+    </dl>
+{% endblock %}

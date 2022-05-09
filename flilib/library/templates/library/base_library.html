@@ -1,0 +1,17 @@
+{% extends "site/base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <div class="row justify-content-between">
+        <div class="col">
+            {% block library_header %}
+            {% endblock %}
+        </div>
+        <div class="col-auto">
+            {% block library_button %}
+            {% endblock %}
+        </div>
+    </div>
+    {% block library_content %}
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "library/base_library.html" %}
+{% load static %}
+{% load i18n %}
+{% load names %}
+
+{% block title %}
+    {{ block.super }} – {{ language|verbose_name }} "{{ language.name }}"
+{% endblock %}
+
+{% block library_header %}
+    <h2>{{ language|verbose_name }}:</h2>
+{% endblock %}
+
+{% block library_button %}
+    <a href="{% url 'library:language:list' %}" class="btn btn-outline-secondary">{% trans "All" %}</a>
+{% endblock %}
+
+{% block library_content %}
+    <dl>
+        <dt><strong>{% field_verbose_name language 'code' %}:</strong></dt>
+        <dd>{{ language.code }}</dd>
+        <dt><strong>{% field_verbose_name language 'name' %}:</strong></dt>
+        <dd>{{ language.name }}</dd>
+        <dt><strong>{% trans "Books count" %}:</strong></dt>
+        <dd>{{ language.books.count }}</dd>
+    </dl>
+{% endblock %}

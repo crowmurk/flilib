@@ -1,0 +1,33 @@
+{% extends "library/base_library.html" %}
+{% load static%}
+{% load i18n %}
+{% load django_tables2 %}
+{% load names %}
+{% load forms %}
+
+{% block title %}
+    {{ block.super }} – {{ view.model|verbose_name_plural }}
+{% endblock %}
+
+{% block library_header %}
+    <h2>{{ view.model|verbose_name_plural }}</h2>
+{% endblock %}
+
+{% block library_button %}
+    {% if filter %}
+        <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#filters">{% trans 'Filter' %}</button>
+    {% endif %}
+{% endblock %}
+
+{% block library_content %}
+    {% if filter %}
+        {% filter_form filter %}
+    {% endif %}
+    {% if table %}
+        {% action_table_form readonly=True %}
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <script type="text/javascript" src="{% static 'site/js/library/author_list.js' %}" defer></script>
+{% endblock %}

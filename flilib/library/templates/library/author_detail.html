@@ -1,0 +1,57 @@
+{% extends "library/base_library.html" %}
+{% load static%}
+{% load i18n %}
+{% load names %}
+{% load forms %}
+
+{% block title %}
+    {{ block.super }} – {{ author|verbose_name }} "{{ author }}"
+{% endblock %}
+
+{% block library_header %}
+    <h2>{{ author|verbose_name }}:</h2>
+{% endblock %}
+
+{% block library_button %}
+    <a href="{% url 'library:author:list' %}" class="btn btn-outline-secondary">{% trans "All" %}</a>
+{% endblock %}
+
+{% block library_content %}
+    <dl>
+        {% if author.firstname %}
+            <dt><strong>{% field_verbose_name author 'firstname' %}:</strong></dt>
+            <dd>{{ author.firstname }}</dd>
+        {% endif %}
+        {% if author.middlename %}
+            <dt><strong>{% field_verbose_name author 'middlename' %}:</strong></dt>
+            <dd>{{ author.middlename }}</dd>
+        {% endif %}
+        {% if author.lastname %}
+            <dt><strong>{% field_verbose_name author 'lastname' %}:</strong></dt>
+            <dd>{{ author.lastname }}</dd>
+        {% endif %}
+    </dl>
+    <div class="row justify-content-between">
+        <div class="col">
+            <h3>{% field_verbose_name author 'books' %}:</h3>
+        </div>
+        <div class="col-auto">
+            {% if filter %}
+                <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#filters">
+                    {% trans 'Filter' %}
+                </button>
+            {% endif %}
+        </div>
+    </div>
+    {% if filter %}
+        {% filter_form filter %}
+    {% endif %}
+    {% if table %}
+        {% trans "Download" as action_verbose %}
+        {% action_table_form table button_class='btn btn-outline-secondary' action_verbose=action_verbose confirmation=False %}
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <script type="text/javascript" src="{% static 'site/js/library/author_detail.js' %}" defer></script>
+{% endblock %}

@@ -1,5 +1,7 @@
 ### Project ###
 
+archives/
+
 ### Python ###
 
 # Byte-compiled / optimized / DLL files
@@ -14,4 +16,3 @@ tags
 
 ### Django ###
 db.sqlite3
-

@@ -1,0 +1,575 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-09 07:49+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: core/forms.py:13 core/templates/core/includes/formset_table.html:135
+msgid "Add"
+msgstr "Добавить"
+
+#: core/paginators.py:83
+msgid "That page letter is less than 1"
+msgstr ""
+
+#: core/paginators.py:85 core/paginators.py:92
+msgid "That page contains no results"
+msgstr ""
+
+#: core/paginators.py:94
+msgid "Invalid page letter"
+msgstr ""
+
+#: core/templates/core/includes/action_table_form.html:35
+msgid "Confirmation required:"
+msgstr "Требуется подтверждение:"
+
+#: core/templates/core/includes/action_table_form.html:41
+msgid "Are you sure you want to"
+msgstr "Вы действительно хотите"
+
+#: core/templates/core/includes/action_table_form.html:49
+#: library/filters.py:159 library/templates/library/book_detail.html:53
+msgid "Yes"
+msgstr "Да"
+
+#: core/templates/core/includes/action_table_form.html:51
+#: library/filters.py:158
+msgid "No"
+msgstr "Нет"
+
+#: core/templates/core/includes/delete_form.html:7
+msgid "Are you sure you want to delete"
+msgstr "Вы действительно хотите удалить"
+
+#: core/templates/core/includes/delete_form.html:12
+msgid "Delete"
+msgstr "Удалить"
+
+#: core/templates/core/includes/delete_form.html:15
+#: core/templates/core/includes/form.html:38 inpx/templates/inpx/clear.html:19
+#: templates/registration/login.html:56 templates/registration/login.html:58
+msgid "Cancel"
+msgstr "Отмена"
+
+#: core/templates/core/includes/filter_form.html:49
+msgid "Apply"
+msgstr "Применить"
+
+#: core/templates/core/includes/formset_table.html:65 library/tables.py:31
+#: library/tables.py:49 library/tables.py:70 library/tables.py:87
+#: library/tables.py:115
+msgid "There are no records available"
+msgstr "Записи не найдены или отсутствуют"
+
+#: core/templates/core/includes/formset_table.html:109
+msgid "First"
+msgstr "Первая"
+
+#: core/templates/core/includes/formset_table.html:125
+msgid "Last"
+msgstr "Последняя"
+
+#: core/templates/core/table.html:67
+msgid "Previous"
+msgstr "Предыдущая"
+
+#: core/templates/core/table.html:93
+msgid "Next"
+msgstr "Следующая"
+
+#: core/validators.py:14
+msgid "This date should be a Monday."
+msgstr "Эта дата должна быть понедельником"
+
+#: core/validators.py:22
+msgid "This date should be a Sunday."
+msgstr "Эта дата должна быть воскресеньем"
+
+#: core/validators.py:30
+#, python-format
+msgid "Slug must not be \"%(slug)s\""
+msgstr "Slug не может быть \"%(slug)s\""
+
+#: core/validators.py:39
+msgid "This value must be grater than zero"
+msgstr "Это значение должно быть больше нуля"
+
+#: core/validators.py:51
+#, python-format
+msgid "An error was founded in %(value)s template: %(message)s"
+msgstr "Шаблон %(value)s содержит ошибку: %(message)s"
+
+#: core/views.py:109
+#, python-brace-format
+msgid "{name} were deleted successfuly"
+msgstr "{name} успешно удалены"
+
+#: core/views.py:114 core/views.py:155 core/views.py:234
+#, python-brace-format
+msgid "Cannot delete {name} because of foreign references"
+msgstr "Невозможно удалить {name} при существующих внешних ссылках"
+
+#: core/views.py:145
+#, python-brace-format
+msgid "{name} was deleted successfuly"
+msgstr "{name} успешно удален"
+
+#: flilib/settings/base.py:115
+msgid "Russian"
+msgstr "Русский"
+
+#: flilib/settings/base.py:116
+msgid "English"
+msgstr "Английский"
+
+#: flilib/settings/base.py:155
+msgid "Flibusta Library administration"
+msgstr "Администрирование Flibusta Library"
+
+#: flilib/settings/base.py:157
+msgid "Flibusta Library – administration"
+msgstr "Flibusta Library – администрирование"
+
+#: flilib/settings/base.py:159
+msgid "Site administration"
+msgstr "Администрирование сайта"
+
+#: inpx/apps.py:7
+msgid "INPX"
+msgstr "INPX"
+
+#: inpx/models.py:14 library/models.py:366
+msgid "File"
+msgstr "Файл"
+
+#: inpx/models.py:19
+msgid "Hash"
+msgstr "Хеш"
+
+#: inpx/models.py:39 inpx/models.py:53 library/filters.py:50
+#: library/filters.py:77 library/models.py:134 library/models.py:204
+msgid "Code"
+msgstr "Код"
+
+#: inpx/models.py:45
+msgid "Gennre"
+msgstr "Жанр"
+
+#: inpx/models.py:59 library/filters.py:81 library/models.py:225
+#: library/models.py:392 library/tables.py:55 library/tables.py:95
+msgid "Language"
+msgstr "Язык"
+
+#: inpx/models.py:67
+msgid "Authors in database"
+msgstr "Авторы в базе данных"
+
+#: inpx/models.py:72
+msgid "Authors in library"
+msgstr "Авторы в библиотеке"
+
+#: inpx/models.py:77
+msgid "Genres in database"
+msgstr "Жанры в базе данных"
+
+#: inpx/models.py:82
+msgid "Genres in library"
+msgstr "Жанры в библиотеке"
+
+#: inpx/models.py:87
+msgid "Languages in database"
+msgstr "Языки в базе данных"
+
+#: inpx/models.py:92
+msgid "Languages in library"
+msgstr "Языки в библиотеке"
+
+#: inpx/models.py:97
+msgid "Series in database"
+msgstr "Серии в базе данных"
+
+#: inpx/models.py:102
+msgid "Series in library"
+msgstr "Серии в библиотеке"
+
+#: inpx/models.py:107
+msgid "Books in database"
+msgstr "Книги в базе данных"
+
+#: inpx/models.py:112
+msgid "Books in library"
+msgstr "Книги в библиотеке"
+
+#: inpx/models.py:116
+msgid "Update date"
+msgstr "Дата обновления"
+
+#: inpx/models.py:121
+msgid "Update time spent"
+msgstr "Затрачено времени на обновление"
+
+#: inpx/models.py:125 inpx/models.py:126
+msgid "Database statistic"
+msgstr "Статистика базы данных"
+
+#: inpx/templates/inpx/clear.html:5
+msgid "DB Clear"
+msgstr "Очистка базы данных"
+
+#: inpx/templates/inpx/clear.html:13
+msgid "Are you sure you want to clear database?"
+msgstr "Вы действительно хотите очистить базу данных"
+
+#: inpx/templates/inpx/clear.html:16 templates/site/base.html:56
+msgid "Clear"
+msgstr "Очистить"
+
+#: inpx/templates/inpx/statistic.html:6 inpx/templates/inpx/statistic.html:13
+#: templates/site/base.html:54
+msgid "Statistic"
+msgstr "Статистика"
+
+#: inpx/templates/inpx/statistic.html:18 inpx/templates/inpx/statistic.html:36
+#: inpx/templates/inpx/update.html:13 inpx/templates/inpx/update.html:23
+#: inpx/templates/inpx/update.html:39 library/filters.py:33
+#: library/filters.py:67 library/filters.py:94 library/filters.py:117
+#: library/models.py:419 library/tables.py:19 library/tables.py:38
+#: library/tables.py:59 library/tables.py:77 templates/site/base.html:39
+msgid "Books"
+msgstr "Книги"
+
+#: inpx/templates/inpx/statistic.html:24 inpx/templates/inpx/update.html:35
+#: library/models.py:71 library/models.py:341 templates/site/base.html:40
+msgid "Authors"
+msgstr "Авторы"
+
+#: inpx/templates/inpx/statistic.html:27 library/models.py:156
+#: library/models.py:349 templates/site/base.html:42
+msgid "Genres"
+msgstr "Жанры"
+
+#: inpx/templates/inpx/statistic.html:30 library/models.py:226
+#: templates/site/base.html:43
+msgid "Languages"
+msgstr "Языки"
+
+#: inpx/templates/inpx/statistic.html:33 inpx/templates/inpx/update.html:37
+#: templates/site/base.html:41
+msgid "Series"
+msgstr "Серии"
+
+#: inpx/templates/inpx/statistic.html:45
+msgid "No statistic available"
+msgstr "Статистика недоступна"
+
+#: inpx/templates/inpx/update.html:5 inpx/templates/inpx/update.html:9
+msgid "Update DB"
+msgstr "Обновление базы данных"
+
+#: inpx/templates/inpx/update.html:18
+msgid "INPX file"
+msgstr "Файл INPX"
+
+#: inpx/templates/inpx/update.html:21
+msgid "Parsing results"
+msgstr "Результаты обработки"
+
+#: inpx/templates/inpx/update.html:25
+msgid "Errors"
+msgstr "Ошибки"
+
+#: inpx/templates/inpx/update.html:27 inpx/templates/inpx/update.html:42
+msgid "Time spent"
+msgstr "Затрачено времени"
+
+#: inpx/templates/inpx/update.html:30
+msgid "Database update results"
+msgstr "Результаты обновления"
+
+#: inpx/templates/inpx/update.html:32
+msgid "INP files"
+msgstr "Файлы INP"
+
+#: inpx/templates/inpx/update.html:33 inpx/templates/inpx/update.html:40
+msgid "Created"
+msgstr "Создано"
+
+#: inpx/templates/inpx/update.html:34 inpx/templates/inpx/update.html:41
+msgid "Updated"
+msgstr "Обновлено"
+
+#: inpx/views.py:44
+msgid "Database was cleared successfuly"
+msgstr "База данных была успешно очищена"
+
+#: inpx/views.py:45
+#, python-brace-format
+msgid "Cannot clear database '{table}' because of error: {error}"
+msgstr "Ошибка очистки базы данных '{table}': {error}"
+
+#: library/apps.py:7
+msgid "Library"
+msgstr "Бибилиотека"
+
+#: library/filters.py:21 library/filters.py:128 library/models.py:70
+msgid "Author"
+msgstr "Автор"
+
+#: library/filters.py:54 library/models.py:139
+msgid "Description"
+msgstr "Описание"
+
+#: library/filters.py:104 library/models.py:209 library/models.py:274
+msgid "Name"
+msgstr "Название"
+
+#: library/filters.py:131 library/models.py:333
+msgid "Title"
+msgstr "Название"
+
+#: library/filters.py:136 library/models.py:155
+msgid "Genre"
+msgstr "Жанр"
+
+#: library/filters.py:137
+msgid "All genres"
+msgstr "Все жанры"
+
+#: library/filters.py:141
+msgid "All languages"
+msgstr "Все языки"
+
+#: library/filters.py:157 library/templates/library/author_detail.html:16
+#: library/templates/library/book_detail.html:18
+#: library/templates/library/genre_detail.html:15
+#: library/templates/library/language_detail.html:15
+#: library/templates/library/series_detail.html:16
+msgid "All"
+msgstr "Все"
+
+#: library/models.py:43
+msgid "Firstname"
+msgstr "Имя"
+
+#: library/models.py:48
+msgid "Middlename"
+msgstr "Отчество"
+
+#: library/models.py:53
+msgid "Lastname"
+msgstr "Фамилия"
+
+#: library/models.py:64 library/models.py:149 library/models.py:219
+#: library/models.py:285
+msgid "A label for URL config."
+msgstr "URL идентификатор объекта"
+
+#: library/models.py:88
+msgid "At least one of the names required"
+msgstr "Требуется по крайней мере одно занчение"
+
+#: library/models.py:291
+msgctxt "series model verbose"
+msgid "Series"
+msgstr "Серия"
+
+#: library/models.py:292
+msgctxt "series model verbose plural"
+msgid "Series"
+msgstr "Серии"
+
+#: library/models.py:357
+msgctxt "book series verbose"
+msgid "Series"
+msgstr "Серия"
+
+#: library/models.py:362
+msgid "Series number"
+msgstr "Номер в серии"
+
+#: library/models.py:369
+msgid "Size"
+msgstr "Размер"
+
+#: library/models.py:373
+msgid "Library ID"
+msgstr "ID в бибилиотеке"
+
+#: library/models.py:376
+msgid "Deleted"
+msgstr "Удалена"
+
+#: library/models.py:381
+msgid "Extension"
+msgstr "Расширение"
+
+#: library/models.py:384
+msgid "Date"
+msgstr "Дата"
+
+#: library/models.py:401
+msgid "Library rate"
+msgstr "Рейтинг"
+
+#: library/models.py:406
+msgid "Keywords"
+msgstr "Ключевые слова"
+
+#: library/models.py:412
+msgid "Archive"
+msgstr "Архив"
+
+#: library/models.py:418
+msgid "Book"
+msgstr "Книга"
+
+#: library/models.py:432
+#, python-brace-format
+msgid "{book} by {authors}"
+msgstr "{book} авторов {authors}"
+
+#: library/models.py:440
+msgid "Series required."
+msgstr "Требуется серия"
+
+#: library/models.py:441
+msgid "Series number without series"
+msgstr "Номер в серии без серии"
+
+#: library/templates/library/author_detail.html:41
+#: library/templates/library/author_list.html:18
+#: library/templates/library/book_list.html:18
+#: library/templates/library/genre_list.html:18
+#: library/templates/library/language_list.html:18
+#: library/templates/library/series_detail.html:31
+#: library/templates/library/series_list.html:18
+msgid "Filter"
+msgstr "Фильтр"
+
+#: library/templates/library/author_detail.html:50
+#: library/templates/library/book_detail.html:16
+#: library/templates/library/book_list.html:27
+#: library/templates/library/series_detail.html:40
+msgid "Download"
+msgstr "Скачать"
+
+#: library/templates/library/genre_detail.html:24
+#: library/templates/library/language_detail.html:24
+msgid "Books count"
+msgstr "Колличество книг"
+
+#: templates/400.html:5 templates/400.html:9
+msgid "Bad request"
+msgstr "Ошибка в запросе"
+
+#: templates/400.html:12
+msgid ""
+"\n"
+"            I do not get upset when people do not understand me,\n"
+"            upset if I do not understand people.\"\n"
+"        "
+msgstr ""
+"\n"
+"                    Я не огорчаюсь, если люди меня не понимают,\n"
+"                    - огорчаюсь, если я не понимаю людей.\"\n"
+"                "
+
+#: templates/403.html:5 templates/403.html:9
+msgid "Forbidden"
+msgstr "Доступ запрещен"
+
+#: templates/403.html:11
+msgid "No things are forbidden, they are just not recommended."
+msgstr "Запретных вещей нет, есть вещи нерекомендованные."
+
+#: templates/404.html:5 templates/404.html:9
+msgid "Page not found"
+msgstr "Страница не найдена"
+
+#: templates/404.html:12
+msgid ""
+"\n"
+"            There are all sorts here walking around,\n"
+"            and then I have a page missing!\n"
+"        "
+msgstr ""
+"\n"
+"                    Ходят тут всякие,\n"
+"                    а потом у меня страницы пропадают!\n"
+"                "
+
+#: templates/500.html:5 templates/500.html:9
+msgid "Internal server error"
+msgstr "Ошибка сервера"
+
+#: templates/500.html:11
+msgid "Do not mistake the one who does nothing."
+msgstr "Никогда не ошибается тот, кто ничего не делает."
+
+#: templates/registration/logged_out.html:5
+#: templates/registration/logged_out.html:9
+msgid "Logged out!"
+msgstr "Выход выполнен!"
+
+#: templates/registration/logged_out.html:11
+msgid "Click here to login again."
+msgstr "Войти снова."
+
+#: templates/registration/login.html:6 templates/registration/login.html:12
+#: templates/registration/login.html:52
+msgid "Log in"
+msgstr "Войти"
+
+#: templates/registration/login.html:21
+msgid "Your account doesn't have access to this page."
+msgstr "Ваш пользователь не имеет доступа к этой странице."
+
+#: templates/registration/login.html:23
+msgid "Please login to see this page."
+msgstr "Пожалуйста войдите чтобы увидеть страницу."
+
+#: templates/registration/login.html:34
+msgid ""
+"\n"
+"                        Your username and password didn't match.\n"
+"                        Please try again.\n"
+"                    "
+msgstr ""
+"\n"
+"                    Имя пользователя и пароль не совпадают.\n"
+"                    Пожалуйста, попробуйте снова.\n"
+"                "
+
+#: templates/site/base.html:51
+msgid "Database"
+msgstr "База данных"
+
+#: templates/site/base.html:55
+msgid "Update"
+msgstr "Обновить"
+
+#: templates/site/underconstruction.html:5
+#: templates/site/underconstruction.html:9
+msgid "Under construction"
+msgstr "В разработке"
+
+#: templates/site/underconstruction.html:11
+msgid "Sorry, this section is under construction."
+msgstr "Извините, раздел в разработке."

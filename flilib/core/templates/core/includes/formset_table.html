@@ -1,0 +1,140 @@
+{% load static%}
+{% load i18n %}
+{% load crispy_forms_field %}
+
+{{ formset.management_form }}
+
+<table id="{{ formset.prefix }}_table" class="table table-sm table-borderless mb-3">
+    {% for form in formset.forms %}
+        {% if forloop.first %}
+            <thead id="{{ formset.prefix }}_table_head">
+                <tr>
+                    {% for field in form.visible_fields %}
+                        <th>{{ field.label }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody id="{{ formset.prefix }}_table_body">
+                {% for error in  formset.non_form_errors %}
+                    <tr>
+                        <td colspan="{{ form.visible_fields | length }}">
+                            <span class="text-danger">{{ error }}</span>
+                        </td>
+                    </tr>
+                {% endfor %}
+        {% endif %}
+
+        {% for hidden in form.hidden_fields %}
+            <tr style="display: none;">
+                <td colspan="{{ form.visible_fields | length }}">
+                    {{ hidden }}
+                </td>
+            </tr>
+        {% endfor %}
+
+        {% for error in form.non_field_errors %}
+            <tr>
+                <td colspan="{{ form.visible_fields | length }}">
+                    <span class="text-danger">{{ error }}</span>
+                </td>
+            </tr>
+        {% endfor %}
+
+        <tr>
+            {% for field in form.visible_fields %}
+                <td>
+                    {% crispy_field field %}
+
+                    {% for error in field.errors %}
+                        <span class="invalid-feedback d-block">{{ error }}</span>
+                    {% endfor %}
+                </td>
+            {% endfor %}
+        </tr>
+    {% empty %}
+        <thead id="{{ formset.prefix }}_table_head">
+            <tr>
+                {% for field in formset.empty_form.visible_fields %}
+                    <th>{{ field.label }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody id="{{ formset.prefix }}_table_body">
+            <tr>
+                <td colspan="{{ formset.empty_form.visible_fields | length }}">
+                    <span>{% trans "There are no records available" %}</span>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+</table>
+
+<table id="{{ formset.prefix }}_empty_form_table" style="display:none">
+    <tbody id="{{ formset.prefix }}_empty_form_table_body">
+        {% for hidden in formset.empty_form.hidden_fields %}
+            <tr style="display: none;">
+                <td colspan="{{ formset.empty_form.visible_fields | length }}">
+                    {{ hidden }}
+                </td>
+            </tr>
+        {% endfor %}
+
+        {% for error in formset.empty_form.non_field_errors %}
+            <tr>
+                <td colspan="{{ formset.empty_form.visible_fields | length }}">
+                    <span class="text-danger">{{ error }}</span>
+                </td>
+            </tr>
+        {% endfor %}
+
+        <tr>
+            {% for field in formset.empty_form.visible_fields %}
+                <td>
+                    {% crispy_field field %}
+
+                    {% for error in field.errors %}
+                        <span class="invalid-feedback d-block">{{ error }}</span>
+                    {% endfor %}
+                </td>
+            {% endfor %}
+        </tr>
+    </tbody>
+</table>
+
+{% if paginator  and paginator.paginator.num_pages > 1 %}
+    <nav>
+        <ul class="pagination justify-content-end">
+            {% if paginator.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">{% trans "First" %}</a>
+                </li>
+            {% endif %}
+            {% for page in paginator.paginator.page_range %}
+                {% if page == paginator.number %}
+                    <li class="page-item active">
+                        <span class="page-link">{{ page }}</span>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            {% if paginator.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ paginator.paginator.num_pages }}">{% trans "Last" %}</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}
+
+<input type="button"
+       class="btn btn-outline-primary"
+       id="formset_add_form_button"
+       value="{% trans 'Add' %}"
+       data-prefix="{{ formset.prefix }}"
+       data-form="{{ formset.prefix }}_empty_form_table_body"
+       data-formset="{{ formset.prefix }}_table_body">
+
+<script type="text/javascript" src="{% static 'site/js/core/formset-dynamic.js' %}" defer></script>

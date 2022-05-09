@@ -1,0 +1,45 @@
+{% load i18n %}
+{% load django_tables2 %}
+{% load forms %}
+{% load crispy_forms_tags %}
+
+<div class="row align-items-center justify-content-center">
+    <div class="col-auto">
+        <h2>{{ action_verbose }}</h2>
+        <form
+            {% if paginator %}
+                action="{{ action }}?page={{ paginator.number }}"
+            {% else %}
+                action="{{ action }}"
+            {% endif %}
+                method="{{ method|default:'post' }}"
+            {% if upload %}
+                enctype="multipart/form-data"
+            {% endif %}
+            >
+                {% csrf_token %}
+                {{ form|crispy }}
+                {% if formset %}
+                    <div class="form-group">
+                        {% formset_table formset %}
+                    </div>
+                {% endif %}
+                {% if table %}
+                    <div class="form-group">
+                        {% render_table table %}
+                    </div>
+                {% endif %}
+                <div class="form-group row justify-content-between">
+                    <div class="col">
+                        <button class="btn btn-outline-primary" type="submit">{{ action_verbose|default:'Submit' }}</button>
+                    </div>
+                    {% if cancel_url %}
+                        <div class="col-auto">
+                            <a href="{{ cancel_url }}" class="btn btn-outline-secondary">{% trans "Cancel" %}</a>
+                        </div>
+                    {% endif %}
+                </div>
+        </form>
+    </div>
+</div>
+

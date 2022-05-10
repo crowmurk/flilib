@@ -19,6 +19,8 @@
 {% endblock %}
 
 {% block library_content %}
+    <div class="row justify-content-between align-items-center">
+        <div class="col">
     <dl>
         {% if book.authors.count %}
             <dt><strong>{% field_verbose_name book 'authors' %}:</strong></dt>
@@ -62,4 +64,11 @@
             <dd>{{ book.keywords }}</dd>
         {% endif %}
     </dl>
+        </div>
+        <div class="col">
+            {% if cover %}
+                <img src="data:image;base64,{{ cover }}" class="rounded float-left"/>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

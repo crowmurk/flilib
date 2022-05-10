@@ -7,6 +7,7 @@ from django_filters.views import FilterView
 from core.views import FilteredTableMixin
 
 from .utils import TableDownloadBookMixin, DownloadBookMixin
+from .fb2reader import Fb2Reader
 
 from .models import (
     Author,
@@ -118,6 +119,11 @@ class BookList(TableDownloadBookMixin, SingleTableMixin, FilterView):
 
 class BookDetail(DetailView):
     model = Book
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['cover'] = Fb2Reader(self.object).cover()
+        return context
 
 class BookDownload(DownloadBookMixin, View):
     model = Book

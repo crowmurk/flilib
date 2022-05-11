@@ -8,6 +8,7 @@ $(document).ready(function() {
     var table = $('.table-container table')
 
     var datatable_options = {
+        "stateSave": true,
         "filter": false,
         "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
         "retrieve": true,

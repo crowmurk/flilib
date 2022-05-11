@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-09 07:49+0300\n"
+"POT-Creation-Date: 2022-05-11 10:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,7 +45,7 @@ msgid "Are you sure you want to"
 msgstr "Вы действительно хотите"
 
 #: core/templates/core/includes/action_table_form.html:49
-#: library/filters.py:159 library/templates/library/book_detail.html:53
+#: library/filters.py:159 library/templates/library/book_detail.html:55
 msgid "Yes"
 msgstr "Да"
 
@@ -474,6 +474,15 @@ msgstr "Скачать"
 #: library/templates/library/language_detail.html:24
 msgid "Books count"
 msgstr "Колличество книг"
+
+#: library/utils.py:55 library/utils.py:101
+msgid "Invalid library path"
+msgstr "Неверный путь до библиотеки"
+
+#: library/utils.py:118
+#, python-brace-format
+msgid "{self.model._meta.verbose_name} does not exists in library."
+msgstr "{self.model._meta.verbose_name} отсутствует в библиотеке."
 
 #: templates/400.html:5 templates/400.html:9
 msgid "Bad request"

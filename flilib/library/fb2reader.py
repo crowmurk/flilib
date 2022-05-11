@@ -34,6 +34,9 @@ class Fb2Reader:
                 return ET.fromstring(file)
         return None
 
+    def exists(self):
+        return bool(self.book)
+
     def cover(self):
         try:
             name = self.book.find(

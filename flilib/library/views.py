@@ -124,8 +124,9 @@ class BookDetail(DetailView):
         context = super().get_context_data(**kwargs)
 
         fb2 = Fb2Reader(self.object)
-        context['cover'] = fb2.cover()
-        context['annotation'] = fb2.annotation()
+        context['book_inlibrary'] = fb2.exists()
+        context['book_cover'] = fb2.cover()
+        context['book_annotation'] = fb2.annotation()
 
         return context
 

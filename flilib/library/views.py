@@ -122,7 +122,11 @@ class BookDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['cover'] = Fb2Reader(self.object).cover()
+
+        fb2 = Fb2Reader(self.object)
+        context['cover'] = fb2.cover()
+        context['annotation'] = fb2.annotation()
+
         return context
 
 

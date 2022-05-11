@@ -49,3 +49,13 @@ class Fb2Reader:
             return cover.text
         except (AttributeError, KeyError):
             return None
+
+    def annotation(self):
+        try:
+            annotation = self.book.find(
+                'fb:description/fb:title-info/fb:annotation',
+                namespaces=self.namespaces,
+            )
+            return ''.join(annotation.itertext()).strip()
+        except (AttributeError, KeyError):
+            return None

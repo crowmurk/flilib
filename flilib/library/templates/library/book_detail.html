@@ -67,8 +67,11 @@
         </div>
         <div class="col">
             {% if cover %}
-                <img src="data:image;base64,{{ cover }}" class="rounded float-left"/>
+                <img src="data:image;base64,{{ cover }}" class="shadow-sm m-5 rounded float-left"/>
             {% endif %}
         </div>
     </div>
+    {% if annotation %}
+        <p class="shadow-sm p-3 mb-5 text-justify">{{ annotation }}</p
+    {% endif %}
 {% endblock %}

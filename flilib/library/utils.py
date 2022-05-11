@@ -3,9 +3,11 @@ import os
 import io
 
 from django.conf import settings
-from django.http import HttpResponseRedirect, HttpResponse, Http404
+from django.contrib import messages
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404
 from django.utils.encoding import escape_uri_path
+from django.utils.translation import gettext_lazy as _
 
 
 class TableDownloadBookMixin:
@@ -21,11 +23,11 @@ class TableDownloadBookMixin:
 
             if self.action:
                 if hasattr(self, self.action):
-                    return getattr(self, self.action)(request.path, selected_objects)
+                    return getattr(self, self.action)(request, selected_objects)
 
         return HttpResponseRedirect(request.path)
 
-    def books_download(self, path, books):
+    def books_download(self, request, books):
         library = settings.LIBRARY_DIR
         files = {}
 
@@ -33,7 +35,7 @@ class TableDownloadBookMixin:
             archiveFileName = os.path.join(library, book.archive.file) + '.zip'
             bookFileName = '.'.join((book.file, book.extension))
 
-            if zipfile.Path(archiveFileName, bookFileName).is_file():
+            if os.path.isfile(archiveFileName) and zipfile.Path(archiveFileName, bookFileName).is_file():
                 if not files.get(archiveFileName):
                     files[archiveFileName] = []
 
@@ -48,6 +50,10 @@ class TableDownloadBookMixin:
                     outArchivePath,
                     outFileName,
                 ))
+
+        if not files:
+            messages.error(request, _('Invalid library path'))
+            return HttpResponseRedirect(request.path)
 
         response = HttpResponse(content_type='application/zip')
         with zipfile.ZipFile(response, 'w') as responseFile:
@@ -84,12 +90,16 @@ class DownloadBookMixin:
             pk=pk,
         )
 
-    def get(self, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         library = settings.LIBRARY_DIR
         book = self.get_object()
 
         archiveFileName = os.path.join(library, book.archive.file) + '.zip'
         bookFileName = '.'.join((book.file, book.extension))
+
+        if not os.path.isfile(archiveFileName):
+            messages.error(request, _('Invalid library path'))
+            return HttpResponseRedirect(book.get_absolute_url())
 
         if zipfile.Path(archiveFileName, bookFileName).is_file():
             outFileName = book.get_download_name()
@@ -104,4 +114,6 @@ class DownloadBookMixin:
 
             response['Content-Disposition'] = f"attachment; filename*=utf-8''{outArchiveFileName}"
             return response
-        raise Http404(f'{self.model._meta.verbose_name} does not exists in library.')
+
+        messages.error(request, _(f'{self.model._meta.verbose_name} does not exists in library.'))
+        return HttpResponseRedirect(book.get_absolute_url())

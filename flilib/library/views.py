@@ -125,5 +125,6 @@ class BookDetail(DetailView):
         context['cover'] = Fb2Reader(self.object).cover()
         return context
 
+
 class BookDownload(DownloadBookMixin, View):
     model = Book

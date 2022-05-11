@@ -27,7 +27,7 @@ class Fb2Reader:
         archiveFileName = os.path.join(library, book.archive.file) + '.zip'
         bookFileName = '.'.join((book.file, book.extension))
 
-        if zipfile.Path(archiveFileName, bookFileName).is_file():
+        if os.path.isfile(archiveFileName) and zipfile.Path(archiveFileName, bookFileName).is_file():
             with zipfile.ZipFile(archiveFileName) as archiveFile:
                 with archiveFile.open(bookFileName) as bookFile:
                     file = bookFile.read()

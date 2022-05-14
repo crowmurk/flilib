@@ -596,8 +596,8 @@ class UpdateDB:
 
         books_update = [Book.objects.get(libraryid=libraryid) for libraryid, deleted in update_data]
 
-        for index, libraryid, deleted in enumerate(update_data):
-            books_update[index].deleted = deleted
+        for index, data in enumerate(update_data):
+            books_update[index].deleted = data[-1]
 
         try:
             books_updated = Book.objects.bulk_update(books_update, ['deleted'])

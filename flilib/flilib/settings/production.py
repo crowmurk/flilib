@@ -12,10 +12,21 @@ ALLOWED_HOSTS = [
 
 # Database
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'flilib',
+#         'USER': 'django_flilib',
+#         'PASSWORD': 'passnot4all',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/var/lib/miningstatistic/db.sqlite3',
+        'NAME': os.path.join(PROJECT_DIR, 'flidb/db.sqlite3'),
     }
 }
 
@@ -46,7 +57,7 @@ LOGGING = {
             ],
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': '/var/log/httpd/django.log',
+            'filename': os.path.join(PROJECT_DIR, 'flilog/django.log'),
             'formatter': 'verbose',
         },
     },

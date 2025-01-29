@@ -28,7 +28,7 @@ MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware',)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(PROJECT_DIR, 'flidb/db.sqlite3'),
     }
 }
 
@@ -68,6 +68,15 @@ LOGGING = {
             ],
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+        'file': {
+            'filters': [
+                'remove_migration_sql',
+            ],
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(PROJECT_DIR, 'flilog/django.log'),
             'formatter': 'verbose',
         },
     },

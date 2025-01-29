@@ -13,6 +13,8 @@ BASE_DIR = os.path.dirname(
     )
 )
 
+PROJECT_DIR = os.path.dirname(BASE_DIR)
+
 # Loading secret key
 
 SECRET_KEY_FILE = os.path.join(
@@ -161,8 +163,8 @@ ADMIN_INDEX_TITLE = _('Site administration')
 # Library config
 
 LIBRARY_DIR = os.path.join(
-    BASE_DIR,
-    'archives',
+    PROJECT_DIR,
+    'flibusta',
 )
 
 INPX_FILE = os.path.join(

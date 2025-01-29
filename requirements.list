@@ -1,0 +1,8 @@
+colorlog
+Django
+django-crispy-forms
+django-debug-toolbar
+django-extensions
+django-filter
+django-tables2
+ipython

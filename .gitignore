@@ -1,6 +1,9 @@
 ### Project ###
 
-archives/
+flibusta/
+flivenv/
+flilog/
+flidb/
 
 ### Python ###
 
@@ -16,3 +19,4 @@ tags
 
 ### Django ###
 db.sqlite3
+*.log

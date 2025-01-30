@@ -97,6 +97,7 @@ class BookTable(tables.Table):
     genres = tables.ManyToManyColumn(
         transform=lambda g: g.description,
     )
+    size = tables.Column()
     download = tables.CheckBoxColumn(
         accessor="pk",
     )
@@ -110,6 +111,7 @@ class BookTable(tables.Table):
             'language',
             'libraryrate',
             'seriesnumber',
+            'size',
         )
         template_name = "core/table.html"
         empty_text = _("There are no records available")

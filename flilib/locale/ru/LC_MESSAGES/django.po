@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-11 10:24+0300\n"
+"POT-Creation-Date: 2025-01-30 09:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,9 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: core/forms.py:13 core/templates/core/includes/formset_table.html:135
 msgid "Add"
@@ -74,7 +74,7 @@ msgstr "Применить"
 
 #: core/templates/core/includes/formset_table.html:65 library/tables.py:31
 #: library/tables.py:49 library/tables.py:70 library/tables.py:87
-#: library/tables.py:115
+#: library/tables.py:117
 msgid "There are no records available"
 msgstr "Записи не найдены или отсутствуют"
 
@@ -131,23 +131,23 @@ msgstr "Невозможно удалить {name} при существующи
 msgid "{name} was deleted successfuly"
 msgstr "{name} успешно удален"
 
-#: flilib/settings/base.py:115
+#: flilib/settings/base.py:117
 msgid "Russian"
 msgstr "Русский"
 
-#: flilib/settings/base.py:116
+#: flilib/settings/base.py:118
 msgid "English"
 msgstr "Английский"
 
-#: flilib/settings/base.py:155
+#: flilib/settings/base.py:157
 msgid "Flibusta Library administration"
 msgstr "Администрирование Flibusta Library"
 
-#: flilib/settings/base.py:157
+#: flilib/settings/base.py:159
 msgid "Flibusta Library – administration"
 msgstr "Flibusta Library – администрирование"
 
-#: flilib/settings/base.py:159
+#: flilib/settings/base.py:161
 msgid "Site administration"
 msgstr "Администрирование сайта"
 
@@ -479,11 +479,6 @@ msgstr "Колличество книг"
 msgid "Invalid library path"
 msgstr "Неверный путь до библиотеки"
 
-#: library/utils.py:118
-#, python-brace-format
-msgid "{self.model._meta.verbose_name} does not exists in library."
-msgstr "{self.model._meta.verbose_name} отсутствует в библиотеке."
-
 #: templates/400.html:5 templates/400.html:9
 msgid "Bad request"
 msgstr "Ошибка в запросе"
@@ -582,3 +577,7 @@ msgstr "В разработке"
 #: templates/site/underconstruction.html:11
 msgid "Sorry, this section is under construction."
 msgstr "Извините, раздел в разработке."
+
+#, python-brace-format
+#~ msgid "{self.model._meta.verbose_name} does not exists in library."
+#~ msgstr "{self.model._meta.verbose_name} отсутствует в библиотеке."

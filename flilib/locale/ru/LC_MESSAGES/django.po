@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-30 09:04+0300\n"
+"POT-Creation-Date: 2025-02-03 12:05+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr ""
 
 #: core/paginators.py:85 core/paginators.py:92
 msgid "That page contains no results"
-msgstr ""
+msgstr "Страница не содержит результатов"
 
 #: core/paginators.py:94
 msgid "Invalid page letter"
@@ -68,7 +68,7 @@ msgstr "Удалить"
 msgid "Cancel"
 msgstr "Отмена"
 
-#: core/templates/core/includes/filter_form.html:49
+#: core/templates/core/includes/filter_form.html:48
 msgid "Apply"
 msgstr "Применить"
 
@@ -85,14 +85,6 @@ msgstr "Первая"
 #: core/templates/core/includes/formset_table.html:125
 msgid "Last"
 msgstr "Последняя"
-
-#: core/templates/core/table.html:67
-msgid "Previous"
-msgstr "Предыдущая"
-
-#: core/templates/core/table.html:93
-msgid "Next"
-msgstr "Следующая"
 
 #: core/validators.py:14
 msgid "This date should be a Monday."
@@ -131,23 +123,23 @@ msgstr "Невозможно удалить {name} при существующи
 msgid "{name} was deleted successfuly"
 msgstr "{name} успешно удален"
 
-#: flilib/settings/base.py:117
+#: flilib/settings/base.py:118
 msgid "Russian"
 msgstr "Русский"
 
-#: flilib/settings/base.py:118
+#: flilib/settings/base.py:119
 msgid "English"
 msgstr "Английский"
 
-#: flilib/settings/base.py:157
+#: flilib/settings/base.py:159
 msgid "Flibusta Library administration"
 msgstr "Администрирование Flibusta Library"
 
-#: flilib/settings/base.py:159
+#: flilib/settings/base.py:161
 msgid "Flibusta Library – administration"
 msgstr "Flibusta Library – администрирование"
 
-#: flilib/settings/base.py:161
+#: flilib/settings/base.py:163
 msgid "Site administration"
 msgstr "Администрирование сайта"
 
@@ -237,12 +229,12 @@ msgstr "Очистка базы данных"
 msgid "Are you sure you want to clear database?"
 msgstr "Вы действительно хотите очистить базу данных"
 
-#: inpx/templates/inpx/clear.html:16 templates/site/base.html:56
+#: inpx/templates/inpx/clear.html:16 templates/site/base.html:58
 msgid "Clear"
 msgstr "Очистить"
 
 #: inpx/templates/inpx/statistic.html:6 inpx/templates/inpx/statistic.html:13
-#: templates/site/base.html:54
+#: templates/site/base.html:55
 msgid "Statistic"
 msgstr "Статистика"
 
@@ -251,27 +243,27 @@ msgstr "Статистика"
 #: inpx/templates/inpx/update.html:39 library/filters.py:33
 #: library/filters.py:67 library/filters.py:94 library/filters.py:117
 #: library/models.py:419 library/tables.py:19 library/tables.py:38
-#: library/tables.py:59 library/tables.py:77 templates/site/base.html:39
+#: library/tables.py:59 library/tables.py:77 templates/site/base.html:40
 msgid "Books"
 msgstr "Книги"
 
 #: inpx/templates/inpx/statistic.html:24 inpx/templates/inpx/update.html:35
-#: library/models.py:71 library/models.py:341 templates/site/base.html:40
+#: library/models.py:71 library/models.py:341 templates/site/base.html:41
 msgid "Authors"
 msgstr "Авторы"
 
 #: inpx/templates/inpx/statistic.html:27 library/models.py:156
-#: library/models.py:349 templates/site/base.html:42
+#: library/models.py:349 templates/site/base.html:43
 msgid "Genres"
 msgstr "Жанры"
 
 #: inpx/templates/inpx/statistic.html:30 library/models.py:226
-#: templates/site/base.html:43
+#: templates/site/base.html:44
 msgid "Languages"
 msgstr "Языки"
 
 #: inpx/templates/inpx/statistic.html:33 inpx/templates/inpx/update.html:37
-#: templates/site/base.html:41
+#: templates/site/base.html:42
 msgid "Series"
 msgstr "Серии"
 
@@ -561,11 +553,11 @@ msgstr ""
 "                    Пожалуйста, попробуйте снова.\n"
 "                "
 
-#: templates/site/base.html:51
+#: templates/site/base.html:52
 msgid "Database"
 msgstr "База данных"
 
-#: templates/site/base.html:55
+#: templates/site/base.html:57
 msgid "Update"
 msgstr "Обновить"
 
@@ -577,7 +569,3 @@ msgstr "В разработке"
 #: templates/site/underconstruction.html:11
 msgid "Sorry, this section is under construction."
 msgstr "Извините, раздел в разработке."
-
-#, python-brace-format
-#~ msgid "{self.model._meta.verbose_name} does not exists in library."
-#~ msgstr "{self.model._meta.verbose_name} отсутствует в библиотеке."

@@ -1,6 +1,7 @@
 colorlog
 Django
 django-crispy-forms
+crispy-bootstrap5
 django-debug-toolbar
 django-extensions
 django-filter

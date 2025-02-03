@@ -21,9 +21,11 @@ $(document).ready(
         });
         $("#id_libraryrate_1").select2({
             minimumResultsForSearch: Infinity,
-        }).next().addClass('ml-1');
+            width: 'style',
+        });
         $("#id_deleted").select2({
             minimumResultsForSearch: Infinity,
+            width: 'style',
         });
     }
 );

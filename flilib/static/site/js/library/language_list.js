@@ -13,6 +13,7 @@ $(document).ready(
         // Enable select2 on fields
         $("#id_books_1").select2({
             minimumResultsForSearch: Infinity,
-        }).next().addClass('ml-1');
+            width: 'style',
+        });
     }
 );

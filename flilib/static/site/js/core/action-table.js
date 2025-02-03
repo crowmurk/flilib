@@ -8,6 +8,7 @@ $(document).ready(function() {
     var table = $('.table-container table')
 
     var datatable_options = {
+        'pageLength': 25,
         "stateSave": true,
         "filter": false,
         "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
@@ -20,9 +21,17 @@ $(document).ready(function() {
         preDrawCallback: function (settings) {
             var api = new $.fn.dataTable.Api(settings);
             var pagination = $(this)
-                .closest('.dataTables_wrapper')
-                .find('.dataTables_paginate');
+                .closest('.dt-container')
+                .find('.dt-paging');
             pagination.toggle(api.page.info().pages > 1);
+        },
+        layout: {
+            bottomEnd: {
+                paging: {
+                    firstLast: false,
+                    previousNext: false
+                }
+            }
         }
     }
 
@@ -39,12 +48,6 @@ $(document).ready(function() {
             "loadingRecords": "Загрузка записей...",
             "zeroRecords": "Записи отсутствуют.",
             "emptyTable": "В таблице отсутствуют данные",
-            "paginate": {
-                "first": "Первая",
-                "previous": "Предыдущая",
-                "next": "Следующая",
-                "last": "Последняя"
-            },
             "aria": {
                 "sortAscending": ": активировать для сортировки столбца по возрастанию",
                 "sortDescending": ": активировать для сортировки столбца по убыванию"
@@ -63,5 +66,10 @@ $(document).ready(function() {
     table.find('th.orderable a').contents().unwrap()
 
     // Make DataTable
+    $.fn.dataTable.ext.errMode = 'none';
+    table.on('dt-error.dt', function (e, settings, techNote, message) {
+        console.warn('An error has been reported by DataTables: ', message);
+
+    })
     table.DataTable(datatable_options);
 });

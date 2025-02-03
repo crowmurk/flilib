@@ -1,6 +1,90 @@
 # Flibusta local server
 
-- [Запуск тестового сервера](#запуск-тестового-сервера)
+Каталогизатор архивов библиотеки Flibusta
+
+- [Run test server](#run-test-server)
+
+## Запуск тестового сервера
+
+Создаем виртуальное окружение Python:
+
+```bash
+python -m venv flivenv
+```
+
+Активируем виртуальное окружение:
+
+```bash
+source ./flivenv/bin/activate
+```
+
+Клонируем репозиторий:
+
+```bash
+git clone https://github.com/crowmurk/flilib
+```
+
+Обновляем `pip`:
+
+```bash
+pip install --upgrade pip
+```
+
+```bash
+pip install -r ./requirements.txt
+```
+
+Создаем папки для хранения логов и БД:
+
+```bash
+mkdir flilog
+mkdir flidb
+```
+
+Создаем БД:
+
+```bash
+./flilib/manage.py migrate
+```
+
+В файле `flilib/flilib/settings/base.py` изменяем пути к архиву библиотеки и файлу inpx на свои:
+
+```python
+LIBRARY_DIR = '/path/to/library'
+INPX_FILE = '/path/to/inpx/file'
+```
+
+Проверяем inpx файл:
+
+```bash
+./flilib/manage.py dbupdate --verify-data
+```
+
+Обновляем  БД:
+
+```bash
+./flilib/manage.py dbupdate --update-db
+```
+
+При возникновении ошибок, можно для очистки БД выполнить:
+
+```bash
+./flilib/manage.py dbclear
+```
+
+Деактивируем виртуальное окружение Python:
+
+```bash
+deactivate
+```
+
+Запускаем сервер (прервать работу сервера: `Ctrl-C`):
+
+```bash
+./start.sh
+```
+
+Заходим в браузере: [localhost:8000](http://localhost:8000)
 
 ## Run test server
 
@@ -31,19 +115,23 @@ pip install --upgrade pip
 Install requirements:
 
 ```bash
-pip install -r requirements.txt
+pip install -r ./requirements.txt
+```
+
+Create log and database destination folders:
+
+```bash
+mkdir flilog
+mkdir flidb
 ```
 
 Create project database:
 
 ```bash
-mkdir flidb
-
-cd flilib
-./manage.py migrate
+./flilib/manage.py migrate
 ```
 
-Change paths to the library archives and inpx file in `flilib/settings/base.py`:
+Change paths to the library archives and inpx file in `flilib/flilib/settings/base.py`:
 
 ```python
 LIBRARY_DIR = '/path/to/library'
@@ -53,28 +141,20 @@ INPX_FILE = '/path/to/file.inpx'
 Verify inpx file:
 
 ```bash
-./manage.py dbupdate --verify-data
+./flilib/manage.py dbupdate --verify-data
 ```
 
 Update project database:
 
 ```bash
-./manage.py dbupdate --update-db
+./flilib/manage.py dbupdate --update-db
 ```
 
 If any errors ocurred, you may clear the database:
 
 ```bash
-./manage.py dbclear
+./flilib/manage.py dbclear
 ```
-
-Run test server (to stop the server press `Ctrl-C`):
-
-```bash
-./manage.py runserver
-```
-
-Open in browser: [localhost:8000](http://localhost:8000)
 
 Deacivate the Python virtual environment:
 
@@ -82,80 +162,10 @@ Deacivate the Python virtual environment:
 deactivate
 ```
 
-## Запуск тестового сервера
-
-Создаем виртуальное окружение Python:
+Run test server (to stop the server press `Ctrl-C`):
 
 ```bash
-python -m venv flivenv
+./start.sh
 ```
 
-Активируем виртуальное окружение:
-
-```bash
-source ./flivenv/bin/activate
-```
-
-Клонируем репозиторий:
-
-```bash
-git clone https://github.com/crowmurk/flilib
-```
-
-Обновляем `pip`:
-
-```bash
-pip install --upgrade pip
-```
-
-```bash
-pip install -r requirements.txt
-```
-
-Создаем БД:
-
-```bash
-mkdir flidb
-
-cd flilib
-./manage.py migrate
-```
-
-В файле `flilib/settings/base.py` изменяем пути к архиву библиотеки и файлу inpx на свои:
-
-```python
-LIBRARY_DIR = '/path/to/library'
-INPX_FILE = '/path/to/inpx/file'
-```
-
-Проверяем inpx файл:
-
-```bash
-./manage.py dbupdate --verify-data
-```
-
-Обновляем  БД:
-
-```bash
-./manage.py dbupdate --update-db
-```
-
-При возникновении ошибок, можно для очистки БД выполнить:
-
-```bash
-./manage.py dbclear
-```
-
-Запускаем тестовый сервер django (прервать работу сервера: `Ctrl-C`):
-
-```bash
-./manage.py runserver
-```
-
-Заходим в браузере: [localhost:8000](http://localhost:8000)
-
-Деактивируем виртуальное окружение Python:
-
-```bash
-deactivate
-```
+Open in browser: [localhost:8000](http://localhost:8000)

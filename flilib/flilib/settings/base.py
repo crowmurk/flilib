@@ -40,6 +40,7 @@ THIRD_PARTY_APPS = [
     'django_tables2',
     'django_filters',
     'crispy_forms',
+    "crispy_bootstrap5",
 ]
 
 LOCAL_APPS = [
@@ -138,11 +139,12 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-# Bootstrap 4 support
+# Bootstrap 5 support
 
-CRISPY_TEMPLATE_PACK = "bootstrap4"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap4.html"
+DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap5.html"
 
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',

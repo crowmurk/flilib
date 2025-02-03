@@ -11,9 +11,15 @@ $(document).ready(
         $('#id_books_1').wrap('<div class="input-group-append"></div>')
 
         // Enable select2 on fields
+        var current_language = $("select[id='id_global_language']").val();
+
         $("#id_books_1").select2({
             minimumResultsForSearch: Infinity,
             width: 'style',
+        });
+
+        $("#id_description").select2({
+            language: current_language,
         });
     }
 );

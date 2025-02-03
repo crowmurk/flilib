@@ -50,9 +50,11 @@ class GenreFilter(filters.FilterSet):
         label=_('Code'),
         lookup_expr='icontains',
     )
-    description = filters.CharFilter(
-        label=_('Description'),
-        lookup_expr='icontains',
+    description = filters.ChoiceFilter(
+        choices=Genre.objects.values_list('id', 'description'),
+        field_name='id',
+        label=_('Genre'),
+        empty_label=_('All genres'),
     )
     books = filters.LookupChoiceFilter(
         field_class=forms.DecimalField,
@@ -77,9 +79,11 @@ class LanguageFilter(filters.FilterSet):
         label=_('Code'),
         lookup_expr='icontains',
     )
-    name = filters.CharFilter(
+    name = filters.ChoiceFilter(
+        choices=Language.objects.values_list('id', 'name'),
+        field_name='id',
         label=_('Language'),
-        lookup_expr='icontains',
+        empty_label=_('All languages'),
     )
     books = filters.LookupChoiceFilter(
         field_class=forms.DecimalField,

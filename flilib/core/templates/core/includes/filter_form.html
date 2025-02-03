@@ -2,9 +2,9 @@
 {% load static%}
 {% load crispy_forms_field %}
 
-<form action="" method="get" class="collapse show border px-3 py-3 my-3 bg-light" id="filters">
+<form action="" method="get" class="collapse show border p-3 my-3 bg-light" id="filters">
         {% if filter.form.non_field_errors %}
-            <div class="form-row">
+            <div class="row">
                 <div class="col-auto error">
                     {% for error in filter.form.non_field_errors %}
                         <div class="alert alert-danger">{{ error }}</div>
@@ -14,7 +14,7 @@
         {% endif %}
 
         {% if filter.form.hidden_fields %}
-            <div class="form-row">
+            <div class="row">
                 {% for hidden in filter.form.hidden_fields %}
                     <div class"col-auto" style="display: none;">
                         {{ hidden }}
@@ -23,10 +23,10 @@
             </div>
         {% endif %}
 
-        <div class="form-row">
+        <div class="row g-3">
             {% for field in filter.form.visible_fields %}
-                <div class="form-group col-auto">
-                    <strong>{{ field.label_tag }}</strong>
+                <div class="col-auto">
+                    <label class="form-label">{{ field.label_tag }}</label>
                     {% if field.field.fields %}
                         <div class="input-group">
                             {% crispy_field field %}
@@ -42,12 +42,12 @@
                     {% endif %}
                 </div>
             {% endfor %}
+
+            <div class="col-12">
+                <div class="d-flex justify-content-end">
+                    <input type="submit" value={% trans "Apply" %} id="filters-submit" class="btn btn-outline-secondary"/>
+                </div>
+            </div>
         </div>
-    <div class="row justify-content-between">
-        <div class="col"></div>
-        <div class="col-auto">
-            <input type="submit" value={% trans "Apply" %} id="filters-submit" class="btn btn-outline-secondary"/>
-        </div>
-    </div>
 </form>
 <script type="text/javascript" src="{% static 'site/js/core/filter-form.js' %}" defer></script>

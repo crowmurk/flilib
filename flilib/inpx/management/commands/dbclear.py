@@ -1,11 +1,12 @@
-import time
+import datetime
 
 from django.core.management.base import BaseCommand
 from django.db import connection
 
 from core.logger import log
 
-from inpx.utils import updateStatistic
+from inpx.utils import updateDBStatistic
+
 
 class Command(BaseCommand):
     help = 'Clear database'
@@ -14,7 +15,7 @@ class Command(BaseCommand):
         success_message = "Database was cleared successfuly"
         error_message = "Cannot clear database table '{table}' because of error: {error}"
 
-        start = time.time()
+        start = datetime.datetime.now()
         try:
             with connection.cursor() as cursor:
                 for table in ('bookauthor', 'bookgenre', 'book', 'author', 'series'):
@@ -30,4 +31,20 @@ class Command(BaseCommand):
         except Exception as e:
             log.error(error_message.format(error=e, table=table))
 
-        updateStatistic(round(time.time() - start, 2))
+        time_spent = datetime.datetime.now() - start
+        statistic = {
+            'books_parsed': 0,
+            'parse_errors': 0,
+            'time_spent_parse': datetime.timedelta(seconds=0),
+            'inps_created': 0,
+            'inps_updated': 0,
+            'series_created': 0,
+            'authors_created': 0,
+            'books_created': 0,
+            'books_updated': 0,
+            'time_spent_update': time_spent,
+            'time_spent': time_spent,
+            'file': ''
+        }
+
+        updateDBStatistic(statistic)

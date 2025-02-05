@@ -3,7 +3,6 @@ import hashlib
 import multiprocessing
 import os
 import re
-import time
 import zipfile
 
 from django.db import transaction
@@ -31,10 +30,10 @@ def renumerate(collection):
         yield i, collection[i]
 
 
-def updateStatistic(time_spent):
-    start = time.time()
+def updateDBStatistic(statistic):
+    start = datetime.datetime.now()
 
-    statistic = {
+    statistic.update({
         'authors_database': Author.objects.all().count(),
         'authors_library': Author.objects.with_library_books_count().filter(books_count__gt=0).count(),
 
@@ -49,15 +48,15 @@ def updateStatistic(time_spent):
 
         'books_database': Book.objects.all().count(),
         'books_library': Book.objects.filter(deleted=False).count(),
-    }
+    })
 
-    time_spent_statistic = round(time.time() - start, 2)
-
-    statistic['time_spent'] = datetime.timedelta(seconds=round(time_spent + time_spent_statistic, 2))
+    time_spent_statistic = datetime.datetime.now() - start
+    statistic['time_spent_update'] += time_spent_statistic
+    statistic['time_spent'] += time_spent_statistic
 
     Statistic.objects.create(**statistic)
 
-    return time_spent_statistic
+    return statistic
 
 
 class Inpx:
@@ -93,11 +92,11 @@ class Inpx:
                 setattr(cls, method, performance_debugger(
                     getattr(cls, method)
                 ))
-            setattr(cls, 'updateStatistic', staticmethod(query_debugger(
+            setattr(cls, 'updateDBStatistic', staticmethod(query_debugger(
                 show_sql=kwargs.get('show_sql')
-            )(updateStatistic)))
+            )(updateDBStatistic)))
         else:
-            setattr(cls, 'updateStatistic', staticmethod(updateStatistic))
+            setattr(cls, 'updateDBStatistic', staticmethod(updateDBStatistic))
 
         return super().__new__(cls)
 
@@ -372,7 +371,7 @@ class Inpx:
 
     def process(self, inpxFileName):
         results = {}
-        start = time.time()
+        start = datetime.datetime.now()
 
         if self.verbosity == 1:
             log.info('Start parsing inpx...')
@@ -388,9 +387,10 @@ class Inpx:
         parser_results = {
             'books_parsed': len(self.books),
             'parse_errors': len(self.errors),
-            'time_spent_parse': round(time.time() - start, 2),
+            'time_spent_parse': datetime.datetime.now() - start,
         }
         results.update(parser_results)
+        results['file'] = inpxFileName
 
         if self.verbosity == 1:
             log.info('Books parsed: {books_parsed}. Errors: {parse_errors}. Time spent {time_spent_parse}.'.format(
@@ -399,13 +399,15 @@ class Inpx:
 
         if self.update_db:
             update_results = self.db_update()
-            results.update(update_results)
-            time_spent_statistic = self.updateStatistic(
-                results['time_spent_parse'] + results['time_spent_update']
-            )
-            results['time_spent_update'] = round(results['time_spent_update'] + time_spent_statistic, 2)
 
-        results['file'] = inpxFileName
+            results.update(update_results)
+            results['time_spent'] = results['time_spent_parse'] + results['time_spent_update']
+
+            results = self.updateDBStatistic(results)
+        else:
+            results['time_spent_update'] = datetime.timedelta(seconds=0)
+
+        results['time_spent'] = datetime.datetime.now() - start
 
         return results
 
@@ -613,7 +615,7 @@ class UpdateDB:
     @transaction.atomic
     def process(self):
         results = {}
-        start = time.time()
+        start = datetime.datetime.now()
 
         if self.inpx.verbosity == 1:
             log.info('Start updating database...')
@@ -622,7 +624,7 @@ class UpdateDB:
         results['series_created'] = self.series()
         results['authors_created'] = self.authors()
         results['books_created'], results['books_updated'] = self.books()
-        results['time_spent_update'] = round(time.time() - start, 2)
+        results['time_spent_update'] = datetime.datetime.now() - start
 
         if self.inpx.verbosity == 1:
             log.info(

@@ -61,6 +61,56 @@ class LanguageAlias(models.Model):
 
 
 class Statistic(models.Model):
+    books_parsed = models.PositiveIntegerField(
+        editable=False,
+        blank=True,
+        verbose_name=_('Books parsed'),
+    )
+    parse_errors = models.PositiveIntegerField(
+        editable=False,
+        blank=True,
+        verbose_name=_('Parse errors'),
+    )
+    time_spent_parse = models.DurationField(
+        editable=False,
+        blank=True,
+        verbose_name=_('Parse time spend'),
+    )
+    inps_created = models.PositiveIntegerField(
+        editable=False,
+        blank=True,
+        verbose_name=_('INPS created'),
+    )
+    inps_updated = models.PositiveIntegerField(
+        editable=False,
+        blank=True,
+        verbose_name=_('INPS updated'),
+    )
+    series_created = models.PositiveIntegerField(
+        editable=False,
+        blank=True,
+        verbose_name=_('Series creaated'),
+    )
+    authors_created = models.PositiveIntegerField(
+        editable=False,
+        blank=True,
+        verbose_name=_('Authors created'),
+    )
+    books_created = models.PositiveIntegerField(
+        editable=False,
+        blank=True,
+        verbose_name=_('Books created'),
+    )
+    books_updated = models.PositiveIntegerField(
+        editable=False,
+        blank=True,
+        verbose_name=_('Books updated'),
+    )
+    time_spent_update = models.DurationField(
+        editable=False,
+        blank=True,
+        verbose_name=_('Update time spend'),
+    )
     authors_database = models.PositiveIntegerField(
         editable=False,
         blank=True,
@@ -120,6 +170,13 @@ class Statistic(models.Model):
         blank=True,
         verbose_name=_('Update time spent'),
     )
+    file = models.CharField(
+        max_length=4096,
+        editable=False,
+        blank=True,
+        verbose_name=_('INPX file'),
+    )
+
 
     class Meta:
         verbose_name = _('Database statistic')

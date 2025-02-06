@@ -12,10 +12,10 @@ $(document).ready(function () {
     //If the key exists and is set to true, show the collapsed, otherwise hide
     $(idFilters).each(function () {
         if (localStorage.getItem("show_collapse_" + this.id) == "true") {
-            $(this).collapse("show");
+            $(this).addClass("show")
         }
         else {
-            $(this).collapse("hide");
+            $(this).removeClass("show")
         }
     });
 });

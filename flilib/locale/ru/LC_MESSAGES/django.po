@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-03 12:05+0300\n"
+"POT-Creation-Date: 2025-02-06 11:35+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,12 +45,12 @@ msgid "Are you sure you want to"
 msgstr "Вы действительно хотите"
 
 #: core/templates/core/includes/action_table_form.html:49
-#: library/filters.py:159 library/templates/library/book_detail.html:55
+#: library/filters.py:163 library/templates/library/book_detail.html:55
 msgid "Yes"
 msgstr "Да"
 
 #: core/templates/core/includes/action_table_form.html:51
-#: library/filters.py:158
+#: library/filters.py:162
 msgid "No"
 msgstr "Нет"
 
@@ -72,9 +72,9 @@ msgstr "Отмена"
 msgid "Apply"
 msgstr "Применить"
 
-#: core/templates/core/includes/formset_table.html:65 library/tables.py:31
-#: library/tables.py:49 library/tables.py:70 library/tables.py:87
-#: library/tables.py:117
+#: core/templates/core/includes/formset_table.html:65 inpx/tables.py:27
+#: library/tables.py:31 library/tables.py:49 library/tables.py:70
+#: library/tables.py:87 library/tables.py:121
 msgid "There are no records available"
 msgstr "Записи не найдены или отсутствуют"
 
@@ -156,7 +156,7 @@ msgid "Hash"
 msgstr "Хеш"
 
 #: inpx/models.py:39 inpx/models.py:53 library/filters.py:50
-#: library/filters.py:77 library/models.py:134 library/models.py:204
+#: library/filters.py:79 library/models.py:134 library/models.py:204
 msgid "Code"
 msgstr "Код"
 
@@ -164,60 +164,104 @@ msgstr "Код"
 msgid "Gennre"
 msgstr "Жанр"
 
-#: inpx/models.py:59 library/filters.py:81 library/models.py:225
+#: inpx/models.py:59 library/filters.py:85 library/models.py:225
 #: library/models.py:392 library/tables.py:55 library/tables.py:95
 msgid "Language"
 msgstr "Язык"
 
 #: inpx/models.py:67
+msgid "Books parsed"
+msgstr "Книг обработано"
+
+#: inpx/models.py:72
+msgid "Parse errors"
+msgstr "Ошибки обработки"
+
+#: inpx/models.py:77
+msgid "Parse time spend"
+msgstr "Затрачено времени на обработку"
+
+#: inpx/models.py:82
+msgid "INPS created"
+msgstr "INPS создано"
+
+#: inpx/models.py:87
+msgid "INPS updated"
+msgstr "INPS Обновлено"
+
+#: inpx/models.py:92
+msgid "Series creaated"
+msgstr "Серий создано"
+
+#: inpx/models.py:97
+msgid "Authors created"
+msgstr "Авторов создано"
+
+#: inpx/models.py:102
+msgid "Books created"
+msgstr "Книг создано"
+
+#: inpx/models.py:107
+msgid "Books updated"
+msgstr "Книг обновлено"
+
+#: inpx/models.py:112
+msgid "Update time spend"
+msgstr "Затрачено времени на обновление"
+
+#: inpx/models.py:117
 msgid "Authors in database"
 msgstr "Авторы в базе данных"
 
-#: inpx/models.py:72
+#: inpx/models.py:122
 msgid "Authors in library"
 msgstr "Авторы в библиотеке"
 
-#: inpx/models.py:77
+#: inpx/models.py:127
 msgid "Genres in database"
 msgstr "Жанры в базе данных"
 
-#: inpx/models.py:82
+#: inpx/models.py:132
 msgid "Genres in library"
 msgstr "Жанры в библиотеке"
 
-#: inpx/models.py:87
+#: inpx/models.py:137
 msgid "Languages in database"
 msgstr "Языки в базе данных"
 
-#: inpx/models.py:92
+#: inpx/models.py:142
 msgid "Languages in library"
 msgstr "Языки в библиотеке"
 
-#: inpx/models.py:97
+#: inpx/models.py:147
 msgid "Series in database"
 msgstr "Серии в базе данных"
 
-#: inpx/models.py:102
+#: inpx/models.py:152
 msgid "Series in library"
 msgstr "Серии в библиотеке"
 
-#: inpx/models.py:107
+#: inpx/models.py:157
 msgid "Books in database"
 msgstr "Книги в базе данных"
 
-#: inpx/models.py:112
+#: inpx/models.py:162
 msgid "Books in library"
 msgstr "Книги в библиотеке"
 
-#: inpx/models.py:116
+#: inpx/models.py:166
 msgid "Update date"
 msgstr "Дата обновления"
 
-#: inpx/models.py:121
+#: inpx/models.py:171
 msgid "Update time spent"
 msgstr "Затрачено времени на обновление"
 
-#: inpx/models.py:125 inpx/models.py:126
+#: inpx/models.py:177 inpx/templates/inpx/update.html:18
+msgid "INPX file"
+msgstr "Файл INPX"
+
+#: inpx/models.py:182 inpx/models.py:183
 msgid "Database statistic"
 msgstr "Статистика базы данных"
 
@@ -233,51 +277,40 @@ msgstr "Вы действительно хотите очистить базу �
 msgid "Clear"
 msgstr "Очистить"
 
-#: inpx/templates/inpx/statistic.html:6 inpx/templates/inpx/statistic.html:13
-#: templates/site/base.html:55
-msgid "Statistic"
-msgstr "Статистика"
-
-#: inpx/templates/inpx/statistic.html:18 inpx/templates/inpx/statistic.html:36
+#: inpx/templates/inpx/statistic_list.html:17
+#: inpx/templates/inpx/statistic_list.html:34
 #: inpx/templates/inpx/update.html:13 inpx/templates/inpx/update.html:23
 #: inpx/templates/inpx/update.html:39 library/filters.py:33
-#: library/filters.py:67 library/filters.py:94 library/filters.py:117
+#: library/filters.py:69 library/filters.py:98 library/filters.py:121
 #: library/models.py:419 library/tables.py:19 library/tables.py:38
 #: library/tables.py:59 library/tables.py:77 templates/site/base.html:40
 msgid "Books"
 msgstr "Книги"
 
-#: inpx/templates/inpx/statistic.html:24 inpx/templates/inpx/update.html:35
-#: library/models.py:71 library/models.py:341 templates/site/base.html:41
+#: inpx/templates/inpx/statistic_list.html:22
+#: inpx/templates/inpx/update.html:35 library/models.py:71
+#: library/models.py:341 templates/site/base.html:41
 msgid "Authors"
 msgstr "Авторы"
 
-#: inpx/templates/inpx/statistic.html:27 library/models.py:156
+#: inpx/templates/inpx/statistic_list.html:25 library/models.py:156
 #: library/models.py:349 templates/site/base.html:43
 msgid "Genres"
 msgstr "Жанры"
 
-#: inpx/templates/inpx/statistic.html:30 library/models.py:226
+#: inpx/templates/inpx/statistic_list.html:28 library/models.py:226
 #: templates/site/base.html:44
 msgid "Languages"
 msgstr "Языки"
 
-#: inpx/templates/inpx/statistic.html:33 inpx/templates/inpx/update.html:37
-#: templates/site/base.html:42
+#: inpx/templates/inpx/statistic_list.html:31
+#: inpx/templates/inpx/update.html:37 templates/site/base.html:42
 msgid "Series"
 msgstr "Серии"
-
-#: inpx/templates/inpx/statistic.html:45
-msgid "No statistic available"
-msgstr "Статистика недоступна"
 
 #: inpx/templates/inpx/update.html:5 inpx/templates/inpx/update.html:9
 msgid "Update DB"
 msgstr "Обновление базы данных"
-
-#: inpx/templates/inpx/update.html:18
-msgid "INPX file"
-msgstr "Файл INPX"
 
 #: inpx/templates/inpx/update.html:21
 msgid "Parsing results"
@@ -307,11 +340,11 @@ msgstr "Создано"
 msgid "Updated"
 msgstr "Обновлено"
 
-#: inpx/views.py:44
+#: inpx/views.py:51
 msgid "Database was cleared successfuly"
 msgstr "База данных была успешно очищена"
 
-#: inpx/views.py:45
+#: inpx/views.py:52
 #, python-brace-format
 msgid "Cannot clear database '{table}' because of error: {error}"
 msgstr "Ошибка очистки базы данных '{table}': {error}"
@@ -320,35 +353,31 @@ msgstr "Ошибка очистки базы данных '{table}': {error}"
 msgid "Library"
 msgstr "Бибилиотека"
 
-#: library/filters.py:21 library/filters.py:128 library/models.py:70
+#: library/filters.py:21 library/filters.py:132 library/models.py:70
 msgid "Author"
 msgstr "Автор"
 
-#: library/filters.py:54 library/models.py:139
-msgid "Description"
-msgstr "Описание"
-
-#: library/filters.py:104 library/models.py:209 library/models.py:274
-msgid "Name"
-msgstr "Название"
-
-#: library/filters.py:131 library/models.py:333
-msgid "Title"
-msgstr "Название"
-
-#: library/filters.py:136 library/models.py:155
+#: library/filters.py:56 library/filters.py:140 library/models.py:155
 msgid "Genre"
 msgstr "Жанр"
 
-#: library/filters.py:137
+#: library/filters.py:57 library/filters.py:141
 msgid "All genres"
 msgstr "Все жанры"
 
-#: library/filters.py:141
+#: library/filters.py:86 library/filters.py:145
 msgid "All languages"
 msgstr "Все языки"
 
-#: library/filters.py:157 library/templates/library/author_detail.html:16
+#: library/filters.py:108 library/models.py:209 library/models.py:274
+msgid "Name"
+msgstr "Название"
+
+#: library/filters.py:135 library/models.py:333
+msgid "Title"
+msgstr "Название"
+
+#: library/filters.py:161 library/templates/library/author_detail.html:16
 #: library/templates/library/book_detail.html:18
 #: library/templates/library/genre_detail.html:15
 #: library/templates/library/language_detail.html:15
@@ -376,6 +405,10 @@ msgstr "URL идентификатор объекта"
 #: library/models.py:88
 msgid "At least one of the names required"
 msgstr "Требуется по крайней мере одно занчение"
+
+#: library/models.py:139
+msgid "Description"
+msgstr "Описание"
 
 #: library/models.py:291
 msgctxt "series model verbose"
@@ -556,6 +589,10 @@ msgstr ""
 #: templates/site/base.html:52
 msgid "Database"
 msgstr "База данных"
+
+#: templates/site/base.html:55
+msgid "Statistic"
+msgstr "Статистика"
 
 #: templates/site/base.html:57
 msgid "Update"

@@ -1,0 +1,45 @@
+{% extends "inpx/base_inpx.html" %}
+{% load static%}
+{% load i18n %}
+{% load django_tables2 %}
+{% load names %}
+{% load forms %}
+
+{% block title %}
+    {{ block.super }} – {{ view.model|verbose_name_plural }}
+{% endblock %}
+
+{% block inpx_header %}
+    <h2>{{ view.model|verbose_name_plural }}</h2>
+{% endblock %}
+
+{% block inpx_button %}
+    <a href="{% url 'library:book:list' %}" class="btn btn-outline-secondary">{% trans "Books" %}</a>
+{% endblock %}
+
+{% block inpx_content %}
+    <dl>
+        <dt><strong>{% trans "Authors" %}:</strong></dt>
+        <dd>{% field_verbose_name object_last 'authors_database' %}: {{ object_last.authors_database }}</dd>
+        <dd>{% field_verbose_name object_last 'authors_library' %}: {{ object_last.authors_library }}</dd>
+        <dt><strong>{% trans "Genres" %}:</strong></dt>
+        <dd>{% field_verbose_name object_last 'genres_database' %}: {{ object_last.genres_database }}</dd>
+        <dd>{% field_verbose_name object_last 'genres_library' %}: {{ object_last.genres_library }}</dd>
+        <dt><strong>{% trans "Languages" %}:</strong></dt>
+        <dd>{% field_verbose_name object_last 'languages_database' %}: {{ object_last.languages_database }}</dd>
+        <dd>{% field_verbose_name object_last 'languages_library' %}: {{ object_last.languages_library }}</dd>
+        <dt><strong>{% trans "Series" %}:</strong></dt>
+        <dd>{% field_verbose_name object_last 'series_database' %}: {{ object_last.series_database }}</dd>
+        <dd>{% field_verbose_name object_last 'series_library' %}: {{ object_last.series_library }}</dd>
+        <dt><strong>{% trans "Books" %}:</strong></dt>
+        <dd>{% field_verbose_name object_last 'books_database' %}: {{ object_last.books_database }}</dd>
+        <dd>{% field_verbose_name object_last 'books_library' %}: {{ object_last.books_library }}</dd>
+        <dt><strong>{% field_verbose_name object_last 'date' %}:</strong></dt>
+        <dd>{{ object_last.date }}</dd>
+        <dt><strong>{% field_verbose_name object_last 'time_spent' %}:</strong></dt>
+        <dd>{{ object_last.time_spent }}</dd>
+    </dl>
+    {% if table %}
+        {% action_table_form readonly=True %}
+    {% endif %}
+{% endblock %}

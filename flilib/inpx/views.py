@@ -7,18 +7,24 @@ from django.utils.translation import gettext_lazy as _
 from django.views.generic.base import TemplateView
 from django.db import connection
 
+from django_tables2 import SingleTableView
+
 from .models import Statistic
+from .tables import StatisticTable
 from .utils import Inpx, updateDBStatistic
 
 # Create your views here.
 
 
-class DbStatistic(TemplateView):
-    template_name = 'inpx/statistic.html'
+class StatisticList(SingleTableView):
+    model = Statistic
+    table_class = StatisticTable
+    table_pagination = {'per_page': 300}
+    template_name = 'inpx/statistic_list.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['object'] = Statistic.objects.last()
+        context['object_last'] = Statistic.objects.last()
         return context
 
 

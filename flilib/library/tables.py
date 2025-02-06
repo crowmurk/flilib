@@ -100,6 +100,10 @@ class BookTable(tables.Table):
     size = tables.Column()
     download = tables.CheckBoxColumn(
         accessor="pk",
+        attrs={
+            "th": {"class": "text-center"},
+            "td": {"class": "text-center"},
+        },
     )
 
     class Meta:
